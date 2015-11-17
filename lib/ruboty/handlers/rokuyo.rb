@@ -21,7 +21,7 @@ module Ruboty
         time = message[:date] ? Time.parse(message[:date]) : Time.now
         rokuyo = Qreki.calc(time.year, time.month, time.day).rokuyou
         message.reply [
-          "☆今日の六曜\☆\n\n",
+          "☆#{time.strftime('%Y/%m/%d')}の六曜\☆\n\n",
           "  ====\n  #{rokuyo}\n  ====\n",
           description(rokuyo).gsub(/^/, "  ")
         ].join
