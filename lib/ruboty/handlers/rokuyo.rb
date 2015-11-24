@@ -26,7 +26,7 @@ module Ruboty
 
       def rokuyo(message)
         time = message[:date] ? Time.parse(message[:date]) : Time.now
-        rokuyo = Qreki.calc(time.year, time.month, time.day).rokuyou
+        rokuyo = time2rokuyo(time)
         message.reply [
           "☆#{time.strftime('%Y/%m/%d')}の六曜\☆\n\n",
           "  ====\n  #{rokuyo}\n  ====\n",
@@ -36,10 +36,10 @@ module Ruboty
 
       def taian(message)
         time   = message[:date] ? Time.parse(message[:date]) : Time.now
-        rokuyo = Qreki.calc(time.year, time.month, time.day).rokuyou
+        rokuyo = time2rokuyo(time)
         until rokuyo == '大安' do
           time += 24 * 60 * 60
-          rokuyo = Qreki.calc(time.year, time.month, time.day).rokuyou
+          rokuyo = time2rokuyo(time)
         end
         message.reply "★直近の大安★ \n #{time.strftime('%Y/%m/%d')}"
       end
@@ -47,6 +47,10 @@ module Ruboty
       def description(name)
         rokuyo = @config.find{|rokuyo| rokuyo['rokuyo'] == name }
         rokuyo['description']
+      end
+
+      def time2rokuyo(time)
+        Qreki.calc(time.year, time.month, time.day).rokuyou
       end
     end
   end
