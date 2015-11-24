@@ -1,39 +1,61 @@
 # Ruboty::Rokuyo
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruboty/rokuyo`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
+## Install
 
 ```ruby
+# Gemfile
 gem 'ruboty-rokuyo'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ruboty-rokuyo
-
 ## Usage
 
-TODO: Write usage instructions here
+```
+ruboty /(?:taian|大安)( (?<date>.+))?/ - output most recent 大安 date
+ruboty /rokuyo( (?<date>.+))?/         - output rokuyo
 
-## Development
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Examples:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+> @ruboty rokuyo
+☆2015/11/24の六曜☆
+
+  ====
+  仏滅
+  ====
+  「仏も滅するような大凶日」の意味。元は「空亡」「虚亡」と言っていたが、これを全てが虚しいと解釈して「物滅」と呼ぶようになり、これに近年になって「佛（仏）」の字が当てられたものである。
+  この日は六曜の中で最も凶の日とされ、婚礼などの祝儀を忌む習慣がある。この日に結婚式を挙げる人は少ない。そのため仏滅には料金の割引を行う結婚式場もある。他の六曜は読みが複数あるが、仏滅
+は「ぶつめつ」としか読まれない。
+  字面から仏陀（釈迦）が入滅した（亡くなった）日と解釈されることが多いが、上述のように本来は無関係である。釈迦の死んだ日とされる2月15日が旧暦では必ず仏滅になるのは、偶然そうなっただけである。
+  「何事も遠慮する日、病めば長引く、仏事はよろしい」ともいわれる。
+  また『物滅』として「物が一旦滅び、新たに物事が始まる」とされ、「大安」よりも物事を始めるには良い日との解釈もある。
+  出典：http://ja.wikipedia.org/wiki/%E5%85%AD%E6%9B%9C
+> @ruboty rokuyo 2015/12/25
+☆2015/12/25の六曜☆
+
+  ====
+  先勝
+  ====
+  「先んずれば即ち勝つ」の意味。かつては「速喜」「即吉」とも書かれた。万事に急ぐことが良いとされる。
+  「午前中は吉、午後二時より六時までは凶」と言われる。
+  「せんしょう」「せんかち」「さきがち」「さきかち」などと読まれる。
+  出典：http://ja.wikipedia.org/wiki/%E5%85%AD%E6%9B%9C
+> @ruboty taian
+★直近の大安★ 
+ 2015/11/25
+> @ruboty taian 2015/11/26
+★直近の大安★ 
+ 2015/12/01
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ruboty-rokuyo. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
+1. Fork it ( https://github.com/[my-github-username]/ruboty-niftycloud/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
 
 ## License
 
