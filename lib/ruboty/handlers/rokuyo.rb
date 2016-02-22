@@ -8,7 +8,7 @@ module Ruboty
     class Rokuyo < Base
       def initialize(robot)
         super(robot)
-        @config = JSON.parse File.read(File.dirname(__FILE__) + '/rokuyo.json')
+        @config = JSON.parse File.read(File.dirname(__FILE__) + '/rokuyo.json', encoding: Encoding::UTF_8)
       end
 
       on(
